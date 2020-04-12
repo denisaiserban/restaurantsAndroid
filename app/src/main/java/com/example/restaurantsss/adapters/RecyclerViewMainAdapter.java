@@ -1,4 +1,4 @@
-package com.example.restaurantsss;
+package com.example.restaurantsss.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.restaurantsss.R;
+import com.example.restaurantsss.RestaurantDetailsActivity;
 import com.example.restaurantsss.model.Restaurant;
 import com.squareup.picasso.Picasso;
 
@@ -46,18 +48,13 @@ public class RecyclerViewMainAdapter extends RecyclerView.Adapter<RecyclerViewMa
         final Restaurant restaurant = restaurants.get(position);
         Picasso.get().load(restaurant.getPictures().get(0).getSource()).into(holder.restaurantImageView);
         holder.restaurantNameTextView.setText(restaurant.getRestaurantName());
-        holder.addressTextView.setText(restaurant.getAddress());
+        holder.addressTextView.setText(restaurant.getAddress().getAddress());
         holder.openingTimeTextView.setText(restaurant.getOpeningTime() + " - " + restaurant.getClosingTime());
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                fragment1 = new ToDoListFragment(user.getId());
-//                fragmentManager = ((AppCompatActivity)mContext).getSupportFragmentManager();
-//                fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction.replace(R.id.to_do_list_fragment, fragment1);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
+
                 startDetailsActivity(restaurant.getRestaurantId());
             }
         });
@@ -75,23 +72,18 @@ public class RecyclerViewMainAdapter extends RecyclerView.Adapter<RecyclerViewMa
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        //        TextView idTextView;
         TextView restaurantNameTextView;
         ImageView restaurantImageView;
-        //        TextView closingTimeTextView;
         TextView openingTimeTextView;
         TextView addressTextView;
-        //        TextView websiteTextView;
         CardView parentLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             restaurantImageView = itemView.findViewById(R.id.rImageView);
             restaurantNameTextView = itemView.findViewById(R.id.nameTextView);
-//            closingTimeTextView = itemView.findViewById(R.id.closingTimeTextView);
             openingTimeTextView = itemView.findViewById(R.id.openingTimeTextView);
             addressTextView = itemView.findViewById(R.id.addressTextView);
-//            websiteTextView = itemView.findViewById(R.id.websiteTextView);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }

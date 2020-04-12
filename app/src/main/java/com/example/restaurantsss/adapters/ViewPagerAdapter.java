@@ -1,4 +1,4 @@
-package com.example.restaurantsss;
+package com.example.restaurantsss.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.restaurantsss.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -17,7 +18,6 @@ import java.util.List;
 public class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;
-    private LayoutInflater layoutInflater;
     private List<String> images;
 
     public ViewPagerAdapter(Context context, List<String> images) {
@@ -38,7 +38,7 @@ public class ViewPagerAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.custom_layout, null);
         ImageView imageView = view.findViewById(R.id.imageView);
         Picasso.get().load(images.get(position)).into(imageView);

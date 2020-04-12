@@ -11,7 +11,7 @@ public class RestaurantsSingleton {
     private static RestaurantsSingleton ourInstance = new RestaurantsSingleton();
 
     public static RestaurantsSingleton getInstance() {
-        if(ourInstance == null) {
+        if (ourInstance == null) {
             ourInstance = new RestaurantsSingleton();
         }
         return ourInstance;

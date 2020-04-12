@@ -1,22 +1,20 @@
 package com.example.restaurantsss;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.content.res.AppCompatResources;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.example.restaurantsss.adapters.RecyclerViewMainAdapter;
 import com.example.restaurantsss.model.Restaurant;
 
 import org.json.JSONArray;
@@ -27,7 +25,7 @@ import java.util.Objects;
 
 public class RestaurantsFragment extends Fragment {
 
-    private final static String URL = "https://gist.githubusercontent.com/TeodoraIoanaJipa/975ae5606c72b7e26bb7baaa3821e966/raw/782272949c14315cf29eea73849b04c112698979/restaurant.json";
+    private final static String URL = "https://gist.githubusercontent.com/TeodoraIoanaJipa/975ae5606c72b7e26bb7baaa3821e966/raw/f0148c0e6e5bef0df73b5c3e6e09d43c7abe851b/restaurant.json";
     private ArrayList<Restaurant> restaurantsList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,12 +38,11 @@ public class RestaurantsFragment extends Fragment {
         getRestaurants();
     }
 
-    private void initRecyclerView() {
+    private void initializeRecyclerView() {
         RecyclerView recyclerView = Objects.requireNonNull(getView()).findViewById(R.id.restaurants_recycler_view);
 //        DividerItemDecoration itemDecor = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
 //        recyclerView.addItemDecoration(itemDecor);
-        RecyclerViewMainAdapter recyclerViewAdapter =
-                new RecyclerViewMainAdapter(getView().getContext(), restaurantsList);
+        RecyclerViewMainAdapter recyclerViewAdapter = new RecyclerViewMainAdapter(getView().getContext(), restaurantsList);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getView().getContext()));
     }
@@ -57,14 +54,14 @@ public class RestaurantsFragment extends Fragment {
             public void onResponse(JSONArray response) {
                 for (int index = 0; index < response.length(); index++) {
                     try {
-                        Restaurant user = new Restaurant().fromJSON(response.getJSONObject(index));
-                        restaurantsList.add(user);
+                        Restaurant restaurant = new Restaurant().fromJSON(response.getJSONObject(index));
+                        restaurantsList.add(restaurant);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
                 RestaurantsSingleton.getInstance().setRestaurantsList(restaurantsList);
-                initRecyclerView();
+                initializeRecyclerView();
             }
         }, new Response.ErrorListener() {
             @Override

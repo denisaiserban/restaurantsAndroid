@@ -5,7 +5,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Restaurant {
     private Integer restaurantId;
@@ -13,11 +12,11 @@ public class Restaurant {
     private String description;
     private String openingTime;
     private String closingTime;
-    private String address;
+    private Address address;
     private ArrayList<Picture> pictures = new ArrayList<>();
 
 
-    public Restaurant(Integer restaurantId, String restaurantName, String description, String openingTime, String closingTime, String address, ArrayList<Picture> pictures) {
+    public Restaurant(Integer restaurantId, String restaurantName, String description, String openingTime, String closingTime, Address address, ArrayList<Picture> pictures) {
         this.restaurantId = restaurantId;
         this.restaurantName = restaurantName;
         this.description = description;
@@ -36,15 +35,19 @@ public class Restaurant {
         String description = userJSON.getString("description");
         String openingTime = userJSON.getString("openingTime");
         String closingTime = userJSON.getString("closingTime");
-        String address = userJSON.getString("address");
+
+        Address address = new Address().fromJSON(userJSON.getJSONObject("address"));
+
         ArrayList<Picture> picturesList = new ArrayList<>();
 
         JSONArray picturesArray = userJSON.getJSONArray("pictures");
-        for (int index = 0; index < picturesArray.length(); index++){
+        for (int index = 0; index < picturesArray.length(); index++) {
             Picture picture = new Picture().fromJSON(picturesArray.getJSONObject(index));
             picturesList.add(picture);
         }
+
         Restaurant restaurant = new Restaurant(id, restaurantName, description, openingTime, closingTime, address, picturesList);
+
         return restaurant;
     }
 
@@ -96,11 +99,11 @@ public class Restaurant {
         this.closingTime = closingTime;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

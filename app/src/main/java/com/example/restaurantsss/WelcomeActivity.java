@@ -15,6 +15,10 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        setSplashScreenTimer();
+    }
+
+    private void setSplashScreenTimer() {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {

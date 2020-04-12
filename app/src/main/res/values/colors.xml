@@ -8,5 +8,9 @@
     <color name="dark_green">#44740C</color>
     <color name="grey">#636363</color>
     <color name="yellow">#FFC107</color>
+    <color name="orange_dark">#ff5733</color>
+
     <color name="dark_red">#690F0F</color>
+    <color name="button_color">#900C3F</color>
+
 </resources>
