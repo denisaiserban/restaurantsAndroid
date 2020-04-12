@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class RestaurantsFragment extends Fragment {
 
-    private final static String URL = "https://gist.githubusercontent.com/TeodoraIoanaJipa/975ae5606c72b7e26bb7baaa3821e966/raw/f0148c0e6e5bef0df73b5c3e6e09d43c7abe851b/restaurant.json";
+    private final static String URL = "https://gist.githubusercontent.com/TeodoraIoanaJipa/975ae5606c72b7e26bb7baaa3821e966/raw/0b6d7ebb24251d142eb75102aa7c42a582810591/restaurant.json";
     private ArrayList<Restaurant> restaurantsList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

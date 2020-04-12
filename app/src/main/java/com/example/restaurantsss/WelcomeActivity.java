@@ -22,7 +22,7 @@ public class WelcomeActivity extends AppCompatActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), RestaurantsActivity.class));
             }
         }, 4000); //4 seconds
     }

@@ -1,5 +1,6 @@
 package com.example.restaurantsss;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,10 +48,8 @@ public class DetailsFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
         initializeTextViews();
         List<String> sources = getRestaurantsPictures();
-
 
         viewPager = getView().findViewById(R.id.viewPager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getContext(), sources);
@@ -63,7 +62,16 @@ public class DetailsFragment extends Fragment {
         restaurantNameTextView.setText(restaurant.getRestaurantName());
         descriptionTextView.setText(restaurant.getDescription());
         addressTextView.setText(restaurant.getAddress().getAddress());
-        openingTimeTextView.setText(String.format("%s-%s", restaurant.getOpeningTime(), restaurant.getClosingTime()));
+        openingTimeTextView.setText(String.format("%s-%s", restaurant.getOpeningTime(),
+                restaurant.getClosingTime()));
+        reserveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent activityIntent = new Intent(getContext(), ReservationActivity.class);
+                activityIntent.putExtra("name",restaurant.getRestaurantName());
+                startActivity(activityIntent);
+            }
+        });
     }
 
     private List<String> getRestaurantsPictures() {
@@ -82,6 +90,7 @@ public class DetailsFragment extends Fragment {
         addressTextView = getView().findViewById(R.id.addressTextView);
         openingTimeTextView = getView().findViewById(R.id.openingTimeTextView);
         reserveButton = getView().findViewById(R.id.reserveButton);
+
     }
 
 

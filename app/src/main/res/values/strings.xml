@@ -5,5 +5,12 @@
     <string name="description">description</string>
     <string name="restaurant_image">restaurant image</string>
     <string name="openingtime">OpeningTime</string>
+    <string name="open_time_picker">OPEN TIME PICKER</string>
+    <string name="open_date_picker">OPEN DATE PICKER</string>
     <string name="rezerva_o_masa_online">Rezerva o masa online</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="no_time_picked">No time picked.</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_scrolling_details">ScrollingDetailsActivity</string>
+    <string name="welcome_to_restaurantsss">Welcome to Restaurantsss</string>
 </resources>

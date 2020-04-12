@@ -3,7 +3,12 @@
     <dimen name="margin">4dp</dimen>
     <dimen name="padding">5dp</dimen>
     <dimen name="padding_max">9dp</dimen>
+    <dimen name="padding_details">15dp</dimen>
     <dimen name="text_size_normal">16sp</dimen>
-    <dimen name="text_size_title">22sp</dimen>
+    <dimen name="text_dimen">20sp</dimen>
+    <dimen name="text_size_title">24sp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 
 </resources>

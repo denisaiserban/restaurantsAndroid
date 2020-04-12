@@ -13,19 +13,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/welcome_text_shape"
+        android:drawableTop="@drawable/food_icon"
         android:fontFamily="@font/vesper_libre_bold"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="Welcome to Restaurants"
+        android:text="@string/welcome_to_restaurantsss"
         android:textColor="@android:color/white"
-        android:textSize="18dp"
+        android:textSize="@dimen/text_dimen"
+        android:gravity="center_horizontal|center_vertical"
         android:textStyle="bold"
-        android:padding="@dimen/padding"
-        android:drawableStart="@mipmap/baseline_restaurant_menu_white_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintVertical_bias="0.365" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
