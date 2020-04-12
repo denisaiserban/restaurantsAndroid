@@ -3,4 +3,6 @@
     <string name="address">Address</string>
     <string name="name">Name</string>
     <string name="description">description</string>
+    <string name="restaurant_image">restaurant image</string>
+    <string name="openingtime">OpeningTime</string>
 </resources>

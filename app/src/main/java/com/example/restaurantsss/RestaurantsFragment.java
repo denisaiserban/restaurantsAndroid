@@ -27,7 +27,7 @@ import java.util.Objects;
 
 public class RestaurantsFragment extends Fragment {
 
-    private final static String URL = "https://gist.githubusercontent.com/TeodoraIoanaJipa/975ae5606c72b7e26bb7baaa3821e966/raw/1b439358c460e33371258821c4833d03110858fe/restaurant.json";
+    private final static String URL = "https://gist.githubusercontent.com/TeodoraIoanaJipa/975ae5606c72b7e26bb7baaa3821e966/raw/782272949c14315cf29eea73849b04c112698979/restaurant.json";
     private ArrayList<Restaurant> restaurantsList = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,8 +42,8 @@ public class RestaurantsFragment extends Fragment {
 
     private void initRecyclerView() {
         RecyclerView recyclerView = Objects.requireNonNull(getView()).findViewById(R.id.restaurants_recycler_view);
-        DividerItemDecoration itemDecor = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(itemDecor);
+//        DividerItemDecoration itemDecor = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
+//        recyclerView.addItemDecoration(itemDecor);
         RecyclerViewMainAdapter recyclerViewAdapter =
                 new RecyclerViewMainAdapter(getView().getContext(), restaurantsList);
         recyclerView.setAdapter(recyclerViewAdapter);
